@@ -15,7 +15,7 @@ pipeline {
                 }
             }
         }
-        stage("test image") {
+        stage("build image") {
             steps {
                 script {
                     echo "testing the application..."
