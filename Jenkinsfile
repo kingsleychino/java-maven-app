@@ -20,7 +20,7 @@ pipeline {
         stage("deploy") {
             steps {
                 script {
-                    sshagent(credentials: ['ec2-user']) {
+                    sshagent(credentials: ['dev-ec2-key']) {
                         sh '''
                             ssh -o StrictHostKeyChecking=no ec2-user@54.85.22.40 "
                                 docker pull kingsleychino/demo-app:1.0 &&
