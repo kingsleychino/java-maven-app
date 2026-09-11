@@ -21,8 +21,8 @@ pipeline {
             steps {
                 script {
                     def dockerCmd = 'docker run -p 8080:8080 -d kingsleychino/demo-app:1.0'
-                    sshagent(credentials: ['dev-ec2-key'], executable: '') {
-                        sh "ssh -o StrickHostKeyChecking=no ec2-user@54.85.22.40 ${dockerCmd}"
+                    sshagent(credentials: ['dev-ec2-key']) {
+                        sh "ssh -o StrictHostKeyChecking=no ec2-user@54.85.22.40 ${dockerCmd}"
                     }
                 }
             }
