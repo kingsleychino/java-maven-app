@@ -17,7 +17,9 @@ pipeline {
         }
         stage('build') {
             steps {
-                echo 'building the application...'
+                script {
+                    buildApp()
+                }
             }
         }
         stage('test') {
@@ -27,13 +29,16 @@ pipeline {
                 }
             }
             steps {
-                echo 'testing the application...'
+                script {
+                    testApp()
+                }
             }
         }
         stage('deploy') {
             steps {
-                echo 'deploying the application...'
-                echo "deploying version ${params.VERSION}"
+                script {
+                    deployApp()
+                }
             }
         }
     }
